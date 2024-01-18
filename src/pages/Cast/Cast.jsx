@@ -5,7 +5,6 @@ import { toast } from 'react-toastify';
 import { fetchMovieCasts } from 'services/api';
 import { FaUserAlt } from 'react-icons/fa';
 import { Loader } from 'components';
-import { StyledList } from 'styles/Shared';
 import { StyledCastList } from './Cast.styled';
 
 const Cast = () => {
