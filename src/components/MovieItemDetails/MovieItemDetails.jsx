@@ -31,11 +31,11 @@ export const MovieItemDetails = ({ movie }) => {
           </div>
           <div>
             <h1>
-              {movie.original_title}{' '}
+              {movie.original_title}
               {movie.release_date &&
                 `(${format(new Date(movie.release_date), 'yyyy')})`}
             </h1>
-            <p>{`User Score: ${movie.vote_average * 10}%`}</p>
+            <p>{`User Score: ${Math.round(movie.vote_average * 10)}%`}</p>
             <h3>Overview</h3>
             <p>{movie.overview}</p>
             <h3>Genres</h3>
