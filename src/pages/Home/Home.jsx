@@ -2,6 +2,7 @@ import { useHttp } from 'hooks/useHttp';
 import { fetchTrendingMovies } from 'services/api';
 import { Loader, MoviesList } from 'components';
 import { toast } from 'react-toastify';
+import { StyledHeaderSection, StyledSection } from 'styles/Shared';
 
 const Home = () => {
   const params = { fn: fetchTrendingMovies };
@@ -12,11 +13,17 @@ const Home = () => {
   }
 
   return (
-    <section>
-      <h1>Trending today</h1>
-      {isLoading && <Loader />}
-      {movies && <MoviesList movies={movies} />}
-    </section>
+    <>
+      <StyledHeaderSection>
+        <StyledSection>
+          <h1>Trending today</h1>
+        </StyledSection>
+      </StyledHeaderSection>
+      <StyledSection>
+        {isLoading && <Loader />}
+        {movies && <MoviesList movies={movies} />}
+      </StyledSection>
+    </>
   );
 };
 

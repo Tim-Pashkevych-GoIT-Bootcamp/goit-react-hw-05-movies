@@ -1,3 +1,14 @@
+import {
+  StyledLoaderBackdrop,
+  StyledLoaderBackdropContent,
+} from './Loader.module';
+
 export const Loader = () => {
-  return <div>Loader...</div>;
+  return (
+    <StyledLoaderBackdrop>
+      <StyledLoaderBackdropContent>
+        <span className="loader"></span>
+      </StyledLoaderBackdropContent>
+    </StyledLoaderBackdrop>
+  );
 };

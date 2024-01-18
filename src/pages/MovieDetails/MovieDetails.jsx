@@ -3,6 +3,7 @@ import { toast } from 'react-toastify';
 import { fetchMovieDetails } from 'services/api';
 import { useHttp } from 'hooks/useHttp';
 import { Loader, MovieItemDetails } from 'components';
+import { StyledHeaderSection, StyledSection } from 'styles/Shared';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
@@ -15,8 +16,11 @@ const MovieDetails = () => {
 
   return (
     <>
-      {isLoading && <Loader />}
-      {data && <MovieItemDetails movie={data} />}
+      <StyledHeaderSection></StyledHeaderSection>
+      <StyledSection>
+        {isLoading && <Loader />}
+        {data && <MovieItemDetails movie={data} />}
+      </StyledSection>
     </>
   );
 };

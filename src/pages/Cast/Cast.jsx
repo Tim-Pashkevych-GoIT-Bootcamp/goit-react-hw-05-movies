@@ -5,6 +5,8 @@ import { toast } from 'react-toastify';
 import { fetchMovieCasts } from 'services/api';
 import { FaUserAlt } from 'react-icons/fa';
 import { Loader } from 'components';
+import { StyledList } from 'styles/Shared';
+import { StyledCastList } from './Cast.styled';
 
 const Cast = () => {
   const { movieId } = useParams();
@@ -18,7 +20,7 @@ const Cast = () => {
   return (
     <>
       {isLoading && <Loader />}
-      <ul>
+      <StyledCastList>
         {data &&
           data.map(cast => (
             <li key={cast.cast_id}>
@@ -31,11 +33,16 @@ const Cast = () => {
               ) : (
                 <FaUserAlt size={100} />
               )}
-              <p>{cast.original_name}</p>
-              <p>Character: {cast.character}</p>
+              <div>
+                <p>{cast.original_name}</p>
+                <p>
+                  <b>Character:</b>
+                </p>
+                <p> {cast.character}</p>
+              </div>
             </li>
           ))}
-      </ul>
+      </StyledCastList>
     </>
   );
 };

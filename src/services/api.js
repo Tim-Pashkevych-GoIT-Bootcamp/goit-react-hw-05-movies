@@ -1,6 +1,8 @@
 import axios from 'axios';
+import { MOVIE_DB_API_BASE_URL } from 'helpers/constants';
+
 const moviedbApi = axios.create({
-  baseURL: 'https://api.themoviedb.org/3/',
+  baseURL: MOVIE_DB_API_BASE_URL,
   headers: {
     Authorization: `Bearer ${process.env.REACT_APP_THEMOVIEDB_TOKEN}`,
   },

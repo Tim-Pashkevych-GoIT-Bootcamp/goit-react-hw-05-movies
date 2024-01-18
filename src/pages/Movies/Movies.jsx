@@ -2,6 +2,7 @@ import { useHttp } from 'hooks/useHttp';
 import { useSearchParams } from 'react-router-dom';
 import { findMovies } from 'services/api';
 import { MoviesSearch, MoviesList, Loader } from 'components';
+import { StyledHeaderSection, StyledSection } from 'styles/Shared';
 
 const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -15,11 +16,15 @@ const Movies = () => {
 
   return (
     <>
-      {isLoading && <Loader />}
-      <section>
-        <MoviesSearch onSubmit={onSubmit} />
-      </section>
-      <section>{data && <MoviesList movies={data} />}</section>
+      <StyledHeaderSection>
+        <StyledSection>
+          <MoviesSearch onSubmit={onSubmit} />
+        </StyledSection>
+      </StyledHeaderSection>
+      <StyledSection>
+        {isLoading && <Loader />}
+        <section>{data && <MoviesList movies={data} />}</section>
+      </StyledSection>
     </>
   );
 };

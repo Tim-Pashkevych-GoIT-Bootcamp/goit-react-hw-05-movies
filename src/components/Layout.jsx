@@ -1,4 +1,5 @@
-import { Header, Breadcrumbs } from 'components';
+import { Header, Breadcrumbs, Loader } from 'components';
+import { Suspense } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 
 export const Layout = () => {
@@ -8,7 +9,9 @@ export const Layout = () => {
     <div>
       <Header />
       {location.state && <Breadcrumbs />}
-      <Outlet />
+      <Suspense fallback={<Loader />}>
+        <Outlet />
+      </Suspense>
     </div>
   );
 };
