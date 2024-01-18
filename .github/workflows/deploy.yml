@@ -17,6 +17,8 @@ jobs:
           REACT_APP_THEMOVIEDB_TOKEN: ${{ secrets.THEMOVIEDB_TOKEN }}
         run: |
           touch .env
+          echo REACT_APP_BASENAME = \"/goit-react-hw-05-movies\" >> .env
+          echo \n >> .env
           echo REACT_APP_THEMOVIEDB_API_KEY = \"$REACT_APP_THEMOVIEDB_API_KEY\" >> .env
           echo \n >> .env
           echo REACT_APP_THEMOVIEDB_TOKEN = \"$REACT_APP_THEMOVIEDB_TOKEN\" >> .env
